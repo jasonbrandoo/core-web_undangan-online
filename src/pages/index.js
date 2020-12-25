@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { Row, Col } from "react-bootstrap";
 import { MainLayout } from "../components/layouts/Layout";
 import Icon from "react-eva-icons";
@@ -118,6 +119,24 @@ export default function Home() {
             Buat Sekarang
           </a>
           <Banner />
+        </div>
+      </div>
+
+      <div className="responsive-section">
+        <div className="container text-center">
+          <div className="row row-grid align-items-center">
+            <div className="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5 text-center text-md-left">
+              <h4 className="responsive-section--title">
+                Responsive design & Bisa di akses dimanapun
+              </h4>
+              <p>undangan online kamu bisa diakses dimanapun dan kapan pun.</p>
+            </div>
+            <div className="col-12 col-md-7 col-lg-6 order-md-2 text-center">
+              <figure className="w-100">
+                <img src="/assets/responsive.svg" className="img-fluid mw-md-120" />
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
     </MainLayout>

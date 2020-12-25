@@ -4,6 +4,10 @@
   font-family: "Inter", sans-serif;
 }
 
+body {
+  background-color: #f3f3f3 !important;
+}
+
 .notification {
   background-color: #1a66ff;
   padding: 8px;
@@ -27,10 +31,13 @@
   }
 }
 
+.btn-auth {
+}
+
 .btn {
   display: flex;
   align-items: center;
-  font-size: 13px !important;
+  font-size: 15px !important;
   &-register {
     background-color: #282828 !important;
     color: white !important;
@@ -129,6 +136,32 @@
 }
 
 .whyus-section {
+  padding: 5rem 0px;
+  background-color: #ffffff;
+  &--title {
+    font-size: 32px;
+    font-weight: 500;
+  }
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 2rem;
+    color: #707070;
+  }
+  .link-more {
+    color: #e96bb4;
+    margin-top: 2rem;
+    display: inline-block;
+    text-decoration: none;
+  }
+  .img-sample {
+    object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.responsive-section {
   padding: 5rem 0px;
   background-color: #ffffff;
   &--title {
@@ -268,4 +301,39 @@
   width: 100%;
   object-fit: cover;
   height: 350px;
+}
+
+.footer {
+  border-top: 1px solid #dfdede;
+  padding: 5rem 0px;
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  p {
+    margin-top: 17px;
+    font-size: 13px;
+  }
+  .list-item {
+    a {
+      color: #5b5b5b;
+    }
+  }
+
+  .copyright {
+    margin-top: 4rem;
+  }
+}
+
+.auth-page {
+  max-width: 38rem;
+  margin: 10rem auto;
+  .card {
+    margin-right: 3rem;
+    margin-left: 3rem;
+    border: 0px;
+    .card-body {
+      padding: 8rem !important;
+    }
+  }
 }
