@@ -1,12 +1,13 @@
-import React from "react";
-import { Form } from "react-bootstrap";
-import Link from "next/link";
-import { Footer } from "../components/layouts/Layout";
-import { requestRegister } from "../services/api";
-import { useRouter } from "next/router";
+import React from 'react';
+import { Form } from 'react-bootstrap';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Footer } from '../components/layouts';
+import requestRegister from '../services/api';
 
 export default function Register() {
   const router = useRouter();
+  console.log(router);
   const [data, setData] = React.useState({});
 
   const registerHandle = async (e) => {
@@ -50,7 +51,10 @@ export default function Register() {
               </button>
             </Form.Group>
             <p>
-              Belum punya akun? <Link href="/register">Register</Link>
+              Belum punya akun?
+              <Link href="/register">
+                <a>Register</a>
+              </Link>
             </p>
           </form>
         </div>

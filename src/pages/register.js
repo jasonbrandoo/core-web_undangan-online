@@ -1,22 +1,38 @@
-import React from "react";
-import { Form } from "react-bootstrap";
-import Link from "next/link";
-import { Footer } from "../components/layouts/Layout";
-import { requestRegister } from "../services/api";
-import { useRouter } from "next/router";
-import { notification } from "../components/utils";
-import { toast } from "react-toastify";
+import React from 'react';
+import { Form } from 'react-bootstrap';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
+import { Footer } from '../components/layouts';
+import requestRegister from '../services/api';
+import notification from '../components/utils';
 
 export default function Register() {
   const router = useRouter();
-  const [data, setData] = React.useState({});
+  const [email, setEmail] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [confirmPassword, setConfirmPassword] = React.useState('');
 
-  const registerHandle = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await requestRegister(data).then((res) => {
-      toast.dark("registrasi berhasil");
-      router.push("/login");
-    });
+
+    if (password !== confirmPassword) {
+      toast.error('Password tidak sama', { position: 'top-left' });
+    }
+
+    const payload = {
+      name,
+      email,
+      password,
+    };
+
+    const res = await requestRegister(payload);
+    if (res.status === 400) {
+      toast.error(res.data.detail[0].message);
+    } else {
+      toast.success(res.message);
+    }
   };
 
   return (
@@ -27,19 +43,27 @@ export default function Register() {
             <h4>Daftar</h4>
             <p>Gabung bersama dengan pengantin lainnya</p>
           </div>
-          <form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Control
                 placeholder="Email"
                 name="email"
-                onChange={(e) => setData({ ...data, email: e.target.value })}
+                required
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </Form.Group>
             <Form.Group>
               <Form.Control
                 placeholder="Nama"
                 name="name"
-                onChange={(e) => setData({ ...data, name: e.target.value })}
+                required
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
               />
             </Form.Group>
             <Form.Group>
@@ -47,7 +71,11 @@ export default function Register() {
                 placeholder="Password"
                 name="password"
                 type="password"
-                onChange={(e) => setData({ ...data, password: e.target.value })}
+                required
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </Form.Group>
             <Form.Group>
@@ -55,22 +83,28 @@ export default function Register() {
                 placeholder="Konfirmasi Password"
                 name="password_confirm"
                 type="password"
-                onChange={(e) => setData({ ...data, password_confirmation: e.target.value })}
+                required
+                value={confirmPassword}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
               />
             </Form.Group>
             <Form.Group>
               <button
-                type="button"
-                onClick={(e) => registerHandle(e)}
+                type="submit"
                 className="btn btn-primary btn-md btn-block"
               >
                 Daftar
               </button>
             </Form.Group>
             <p>
-              Sudah punya akun? <Link href="/login">Login</Link>
+              Sudah punya akun?
+              <Link href="/login">
+                <a>Login</a>
+              </Link>
             </p>
-          </form>
+          </Form>
         </div>
       </div>
       <Footer />

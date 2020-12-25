@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -69,14 +69,15 @@ body {
 }
 
 .hero {
-  &--section {
-    padding: 12rem 0px;
-    &-title {
-      font-size: 38px;
-      font-weight: 500;
-    }
+  height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &__title {
+    font-size: 38px;
+    font-weight: 500;
   }
-  &-button {
+  &__button--blue {
     background-color: #2797ff !important;
     color: white !important;
     font-size: 14px !important;
@@ -190,23 +191,21 @@ body {
 // Small devices (landscape phones, 576px and up)
 @media only screen and (min-width: 0px) and (max-width: 425px) {
   .hero {
-    &--section {
-      min-height: 350px;
-      padding: 35px 0px;
-      display: flex;
-      align-items: center;
-      background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      &-title {
-        font-size: 28px;
-        font-weight: 700;
-        color: white;
-      }
-      img {
-        max-width: 80%;
-      }
+    min-height: 350px;
+    padding: 35px 0px;
+    display: flex;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &__title {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+    }
+    img {
+      max-width: 80%;
     }
   }
 }
@@ -220,7 +219,7 @@ body {
       padding: 35px 0px;
       display: flex;
       align-items: center;
-      background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+      background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
