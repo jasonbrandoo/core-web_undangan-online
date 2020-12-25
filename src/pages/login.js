@@ -2,8 +2,9 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import Link from "next/link";
 import { Footer } from "../components/layouts/Layout";
-import { requestRegister } from "../services/api";
+import { loginRequest } from "../services/api";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 export default function Register() {
   const router = useRouter();
@@ -11,9 +12,18 @@ export default function Register() {
 
   const registerHandle = async (e) => {
     e.preventDefault();
-    await requestRegister(data).then((res) => {
-      console.log(res);
-    });
+    loginRequest(data)
+      .then((res) => {
+        localStorage.setItem("token", res.token);
+        window.location.href = "/dashboard";
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          toast.dark(error.data.message);
+        }
+
+        toast.error("Terjadi kesalahan pada server.");
+      });
   };
 
   return (
