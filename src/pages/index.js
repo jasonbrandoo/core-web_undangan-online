@@ -9,7 +9,7 @@ import { Banner } from "../components/home/Banner";
 export default function Home() {
   return (
     <MainLayout>
-      <div className="hero--section">
+      <div className="hero--section bg-white">
         <div className="container">
           <div className="row row-grid align-items-center">
             <div className="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5 text-center text-md-left">

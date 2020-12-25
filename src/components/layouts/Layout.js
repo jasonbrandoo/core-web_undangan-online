@@ -10,7 +10,7 @@ export const Notification = () => (
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand p-3 border-bottom">
+    <nav className="bg-white navbar navbar-expand p-3 border-bottom">
       <div className="container ">
         <a className="navbar-brand">UNDANGAN.COM</a>
         <div className="d-none d-md-flex align-items-center ">
